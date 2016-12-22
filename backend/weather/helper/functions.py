@@ -1,5 +1,4 @@
 import datetime as dt
-import math
 
 def kelvinToCelsius(temp):
     return float(temp - 273.15)
