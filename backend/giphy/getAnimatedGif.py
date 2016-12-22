@@ -2,9 +2,9 @@ import requests
 import json
 import urllib
 
-category = 'cute cats'
+tag = 'cute cats'
 apiKey = 'dc6zaTOxFJmzC'
-apiUrl = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&' + urllib.parse.urlencode({'tag' : category})
+apiUrl = 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&' + urllib.parse.urlencode({'tag' : tag})
 
 def returnRandomGif():
     r = requests.get(apiUrl)
