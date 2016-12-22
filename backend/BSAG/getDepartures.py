@@ -42,6 +42,3 @@ def getDepartures():
 
 
     return departures
-
-
-print(getDepartures())
