@@ -1,6 +1,8 @@
-import requests
 import json
-from backend.weather.helper.functions import kelvinToCelsius, timestampToDatetime, meteorologyDegToWindDirection, \
+
+import requests
+
+from backend.widgets.weather.helper.functions import kelvinToCelsius, timestampToDatetime, meteorologyDegToWindDirection, \
     metersPerSecondToKilometersPerHour
 
 cityId = 2944388  # bremen, germany
