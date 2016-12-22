@@ -9,7 +9,7 @@ departures = []
 walkingTime = 7
 
 stationId = '000691055'
-#get station id here: http://fahrplaner.vbn.de/hafas/ajax-getstop.exe/dny?start=1&REQ0JourneyStopsS0A=1&REQ0JourneyStopsB=12&S=Heukaempendamm%2020&js=true -> extId
+#get station id here: http://fahrplaner.vbn.de/hafas/ajax-getstop.exe/dny?start=1&REQ0JourneyStopsS0A=1&REQ0JourneyStopsB=12&S=##################################&js=true -> extId
 dirs = {"Kirchbachstr./4S Lilienthal", "Borgfeld", "Kattenturm/Klinikum LDW"}
 bsag_url = "http://fahrplaner.vbn.de/bin/stboard.exe/dn"
 payload = {
