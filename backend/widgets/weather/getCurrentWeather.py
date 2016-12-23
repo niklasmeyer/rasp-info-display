@@ -1,3 +1,4 @@
+"""Importing JSON, Requests and defaultdict."""
 import json
 import requests
 from collections import defaultdict
@@ -10,10 +11,11 @@ apiKey = '2cc05d69d27887219e0bda4640ef59ac'
 apiUrl = 'http://api.openweathermap.org/data/2.5/weather?id={}&APPID={}'.format(str(cityId),apiKey)
 
 def returnWeatherConditions():
+    """Return JSON of the current weather, which was gathered off of the openwaeatherAPI."""
     r = requests.get(apiUrl)
     APIResponse = json.loads(r.text)
 
-    response = defaultdict()
+    response = defaultdict(dict)
     response['main']['tempreature'] = kelvinToCelsius(APIResponse['main']['temp'])
     response['main']['conditions'] = APIResponse['weather'][0]['main']
     response['main']['cloudyPercent'] = APIResponse['clouds']['all']
@@ -24,4 +26,6 @@ def returnWeatherConditions():
     response['wind']['direction'] = meteorologyDegToWindDirection(APIResponse['wind']['deg'])
     response['wind']['speed'] = metersPerSecondToKilometersPerHour(APIResponse['wind']['speed'])
 
-    return response
+    return json.dumps(response, sort_keys=True)
+
+print(returnWeatherConditions())

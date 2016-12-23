@@ -1,7 +1,9 @@
+"""Importing json, requests, datetime, time and xml.dom."""
+import json
 import requests
 import datetime as dt
-from xml.dom import minidom
 import time
+from xml.dom import minidom
 
 
 timestamp = time.time()
@@ -24,6 +26,7 @@ payload = {
 }
 
 def getDepartures():
+    """Return JSON of upcoming departures based on the stadionId."""
     r = requests.post(bsag_url, data=payload)
     APIResponse = r.text
 
@@ -41,4 +44,4 @@ def getDepartures():
             })
 
 
-    return departures
+    return json.dumps(departures, sort_keys=True)
