@@ -1,7 +1,7 @@
 import datetime as dt
 
 def kelvinToCelsius(temp):
-    return float(temp - 273.15)
+    return temp - 273.15
 
 def timestampToDatetime(timestamp, format):
     return dt.datetime.fromtimestamp(
