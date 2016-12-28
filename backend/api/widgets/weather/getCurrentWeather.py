@@ -2,16 +2,15 @@
 import json
 import requests
 from collections import defaultdict
-
-from backend.widgets.weather.helper.functions import kelvinToCelsius, timestampToDatetime, meteorologyDegToWindDirection, \
-    metersPerSecondToKilometersPerHour
-
-cityId = 2944388  # bremen, germany
-apiKey = '2cc05d69d27887219e0bda4640ef59ac'
-apiUrl = 'http://api.openweathermap.org/data/2.5/weather?id={}&APPID={}'.format(str(cityId),apiKey)
+from backend.api.widgets.weather.helper.functions import kelvinToCelsius, timestampToDatetime, meteorologyDegToWindDirection, \
+        metersPerSecondToKilometersPerHour
 
 def returnWeatherConditions():
     """Return JSON of the current weather, which was gathered off of the openwaeatherAPI."""
+    cityId = 2944388  # bremen, germany
+    apiKey = '2cc05d69d27887219e0bda4640ef59ac'
+    apiUrl = 'http://api.openweathermap.org/data/2.5/weather?id={}&APPID={}'.format(str(cityId),apiKey)
+
     r = requests.get(apiUrl)
     APIResponse = json.loads(r.text)
 
@@ -27,5 +26,3 @@ def returnWeatherConditions():
     response['wind']['speed'] = metersPerSecondToKilometersPerHour(APIResponse['wind']['speed'])
 
     return json.dumps(response, sort_keys=True)
-
-print(returnWeatherConditions())
