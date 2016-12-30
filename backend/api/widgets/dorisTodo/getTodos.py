@@ -7,7 +7,7 @@ import urllib
 def getAPIKey():
     payload = {
         'user':'zookee1',
-        'pass':''
+        'pass':'1'
     }
     apiUrl = "http://beta.dorisapp.com/api/1_0/auth/get_key.json"
     r = requests.get(apiUrl, auth=(payload['user'], payload['pass']))
