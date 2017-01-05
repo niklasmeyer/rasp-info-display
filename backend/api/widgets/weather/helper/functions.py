@@ -18,5 +18,5 @@ def metersPerSecondToKilometersPerHour(ms):
 def meteorologyDegToWindDirection(deg):
     """Return the winddirection by meteorologyDegree."""
     windDirection = ['N', 'NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW']
-    index = round(deg/360*16);
+    index = round(deg/360*16)
     return windDirection[0 if index == 16 else index]

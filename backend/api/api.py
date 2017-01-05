@@ -11,19 +11,27 @@ api = Api(app)
 
 class BSAG(Resource):
     def get(self):
-        return bsag.getDepartures()
+        return bsag.getDepartures(), \
+               { 'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods' : 'PUT,GET' }
 
 class Giphy(Resource):
     def get(self):
-        return giphy.returnRandomGif()
+        return giphy.returnRandomGif(), \
+               { 'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods' : 'PUT,GET' }
 
 class ToDos(Resource):
     def get(self):
-        return todos.getTodaysToDos()
+        return todos.getTodaysToDos(), \
+               { 'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods' : 'PUT,GET' }
 
 class Weather(Resource):
     def get(self):
-        return weather.returnWeatherConditions()
+        return weather.returnWeatherConditions(), \
+               { 'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods' : 'PUT,GET' }
 
 api.add_resource(BSAG, '/bsag')
 api.add_resource(Giphy, '/randomgif')

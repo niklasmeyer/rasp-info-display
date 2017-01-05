@@ -7,11 +7,12 @@ import urllib
 def getAPIKey():
     payload = {
         'user':'zookee1',
-        'pass':''
+        'pass':'astra666'
     }
     apiUrl = "http://beta.dorisapp.com/api/1_0/auth/get_key.json"
     r = requests.get(apiUrl, auth=(payload['user'], payload['pass']))
     APIResponse = json.loads(r.text)
+    print(APIResponse)
     return APIResponse['DRS_Success']['message']
 
 
@@ -21,3 +22,5 @@ def getTodaysToDos():
     r = requests.get(apiUrl)
     APIResponse = json.loads(r.text)
     return APIResponse[0]['todos']
+
+getAPIKey()
